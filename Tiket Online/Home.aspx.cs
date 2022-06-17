@@ -14,8 +14,10 @@ namespace Tiket_Online
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            TampilData();
-
+            if(!IsPostBack)
+            {
+                TampilData();
+            }
         }
         private void TampilData()
         {
@@ -23,6 +25,12 @@ namespace Tiket_Online
             Dt = ClsHome.TampilData();
             RptTampilDaftar.DataSource = Dt;
             RptTampilDaftar.DataBind();
+        }
+
+        protected void BtnSave_Click(object sender, EventArgs e)
+        {
+            ClsHome.SimpanData(TxtTanggal.Text, DDLNamaBus.SelectedValue, TxtTujuan.Text, TxtKeberangkatan.Text, TxtJamBerangkat.Text, TxtJamTiba.Text, TxtKursi.Text);
+            TampilData();
         }
     }
 }

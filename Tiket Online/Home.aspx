@@ -7,8 +7,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no" >
     <title>Beranda</title>
+    <link href="bootstrap4/css/bootstrap.min.css" rel="stylesheet" />
     <link href="additional-file/css/global.css" rel="stylesheet" />
-    <link href="bootstrap4/css/bootstrap.css" rel="stylesheet" />
+    <!--<link href="bootstrap4/css/bootstrap.css" rel="stylesheet" />-->
     <link href="additional-file/css/jquery.dataTables.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -29,22 +30,15 @@
                   <!--MenuBar-->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                    <li class="nav-item active">
                       <a class="navbar-brand" href="#">
                           <img src="additional-file/img/logoMyTicket.png" width="150" height="50" alt="">
                       </a>
                     </li>
-                    <li class="nav-item mt-2 mb-2 ">
-                      <a class="nav-link" style="font-size:20px" href="#">Beranda</a>
+                    <li class="nav-item">
+                      <a class="nav-link" style="font-size:20px" href="Home.aspx">Beranda</a>
                     </li>
-                  </ul>
-                  <!--<form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>-->
-                </div>
-              </div>
-                <!--/MenuBar-->
+                  </ul> 
             </nav>
         </header>
         <main role="main">
@@ -88,14 +82,10 @@
                         </table>
                     </FooterTemplate>
                 </asp:Repeater> 
-                <asp:Button ID="Button1" runat="server" Text="Tambah Data" CssClass="btn btn-outline-primary" data-target="modalTambah" data-toggle="modal"/>
-                <!--<button class="btn btn-primary" type="button" data-target="#ModalTambah" data-toggle="modal">Tambah Data</button>-->
-                <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                  Launch demo modal
-                </button>-->
+                <button type="button" class="btn btn-outline-primary" data-target="#ModalTambah" data-toggle="modal">Tambah Data</button>
             </div>
             <!-- Modal -->
-            <div class="modal fade" id="modalTambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="ModalTambah" tabindex="-1" role="dialog" aria-labelledby="#exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header alert-primary">
@@ -111,7 +101,12 @@
                             </div>
                             <div class="form-group">
                                 <asp:Label ID="Label2" runat="server" Text="Nama Bus"></asp:Label>
-                                <asp:TextBox ID="TxtNama" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:DropDownList ID="DDLNamaBus" CssClass="form-control" runat="server">
+                                    <asp:ListItem>Pilih Bus</asp:ListItem>
+                                    <asp:ListItem>Sido Mulyo</asp:ListItem>
+                                    <asp:ListItem>Sri rejeki</asp:ListItem>
+                                    <asp:ListItem>Lancar Jaya</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                             <div class="form-group">
                                 <asp:Label ID="Label3" runat="server" Text="Tujuan"></asp:Label>
@@ -136,7 +131,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                <asp:Button ID="BtnSave" CssClass="btn btn-primary" runat="server" Text="Simpan" />
+                                <asp:Button ID="BtnSave" OnClick="BtnSave_Click" CssClass="btn btn-primary" runat="server" Text="Simpan" />
                         </div>
                     </div>
                 </div>

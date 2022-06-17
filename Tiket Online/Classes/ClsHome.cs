@@ -33,5 +33,25 @@ namespace Tiket_Online.Classes
                 throw ex;
             }
         }
+
+        public static void SimpanData(string Tanggal, string NamaBus, string Tujuan, string Keberangkatan, string JamBerangkat, string JamTiba, string Kursi)
+        {
+            try
+            {
+                SqlConnection Sqlconn = new SqlConnection(ClsModule.Conn.ToString());
+                SqlCommand cmd = new SqlCommand();
+
+                Sqlconn.Open();
+                cmd.Connection = Sqlconn;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "insert tblDaftar values('"+Tanggal+"', '"+NamaBus+"', '"+Tujuan+"', '"+Keberangkatan+"', '"+JamBerangkat+"', '"+JamTiba+"','"+Kursi+"')";
+                cmd.ExecuteNonQuery();
+                Sqlconn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
