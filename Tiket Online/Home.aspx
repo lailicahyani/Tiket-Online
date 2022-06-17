@@ -99,7 +99,44 @@
                             </tbody>
                         </table>
                     </FooterTemplate>
-                </asp:Repeater>                           
+                </asp:Repeater> 
+                <asp:Button ID="Button1" runat="server" Text="Tambah Data" CssClass="btn btn-outline-primary" data-target="#ModalTambah" data-toggle="modal"/>
+                <!--<button class="btn btn-primary" type="button" data-target="#ModalTambah" data-toggle="modal">Tambah Data</button>-->
+                <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                  Launch demo modal
+                </button>-->
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="ModalTambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header alert-primary">
+                    <h5 class="modal-title" id="exampleModalLabel">Form Tambah Daftar Bus</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <asp:Label ID="Label1" runat="server" Text="Tanggal"></asp:Label>
+                            <asp:TextBox ID="TxtTanggal" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+                        </div>
+                        <div class="form-group">
+                            <asp:Label ID="Label2" runat="server" Text="Nama Bus"></asp:Label>
+                            <asp:TextBox ID="TxtNama" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <asp:Label ID="Label3" runat="server" Text="Tujuan"></asp:Label>
+                            <asp:TextBox ID="TxtTujuan" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+                </div>
             </div>
         </main>
         <footer>
