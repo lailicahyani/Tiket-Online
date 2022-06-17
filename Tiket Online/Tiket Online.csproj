@@ -69,6 +69,8 @@
   <ItemGroup>
     <Content Include="additional-file\css\global.css" />
     <Content Include="additional-file\css\jquery.dataTables.min.css" />
+    <Content Include="additional-file\img\calendar.png" />
+    <Content Include="additional-file\img\logoMyTicket.png" />
     <Content Include="additional-file\img\MyTicketbg2.png" />
     <Content Include="additional-file\img\MyTicketnw.png" />
     <Content Include="additional-file\js\jquery-3.2.1.slim.min.js" />

@@ -30,24 +30,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                      <a class="navbar-brand" href="#">
+                          <img src="additional-file/img/logoMyTicket.png" width="150" height="50" alt="">
                       </a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                      </ul>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link disabled">Disabled</a>
+                    <li class="nav-item mt-2 mb-2 ">
+                      <a class="nav-link" style="font-size:20px" href="#">Beranda</a>
                     </li>
                   </ul>
                   <!--<form class="d-flex" role="search">
@@ -82,7 +70,7 @@
                     <ItemTemplate>
                         <tr>
                             <td><%# Eval("ID") %></td>
-                            <td><%# Eval("Tanggal") %></td>
+                            <td><%# Eval("Tanggal","{0:dd-MM-yyyy}")%></td>
                             <td><%# Eval("NamaBus") %></td>
                             <td><%# Eval("Tujuan") %></td>
                             <td><%# Eval("Keberangkatan") %></td>
@@ -100,48 +88,61 @@
                         </table>
                     </FooterTemplate>
                 </asp:Repeater> 
-                <asp:Button ID="Button1" runat="server" Text="Tambah Data" CssClass="btn btn-outline-primary" data-target="#ModalTambah" data-toggle="modal"/>
+                <asp:Button ID="Button1" runat="server" Text="Tambah Data" CssClass="btn btn-outline-primary" data-target="modalTambah" data-toggle="modal"/>
                 <!--<button class="btn btn-primary" type="button" data-target="#ModalTambah" data-toggle="modal">Tambah Data</button>-->
                 <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                   Launch demo modal
                 </button>-->
             </div>
             <!-- Modal -->
-            <div class="modal fade" id="ModalTambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalTambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header alert-primary">
-                    <h5 class="modal-title" id="exampleModalLabel">Form Tambah Daftar Bus</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <asp:Label ID="Label1" runat="server" Text="Tanggal"></asp:Label>
-                            <asp:TextBox ID="TxtTanggal" CssClass="form-control" runat="server"></asp:TextBox>
-                            <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+                    <div class="modal-content">
+                        <div class="modal-header alert-primary">
+                        <h5 class="modal-title" id="exampleModalLabel">Form Tambah Daftar Bus</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                         </div>
-                        <div class="form-group">
-                            <asp:Label ID="Label2" runat="server" Text="Nama Bus"></asp:Label>
-                            <asp:TextBox ID="TxtNama" CssClass="form-control" runat="server"></asp:TextBox>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <asp:Label ID="Label1" runat="server" Text="Tanggal"></asp:Label>
+                                <asp:TextBox ID="TxtTanggal" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <asp:Label ID="Label2" runat="server" Text="Nama Bus"></asp:Label>
+                                <asp:TextBox ID="TxtNama" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <asp:Label ID="Label3" runat="server" Text="Tujuan"></asp:Label>
+                                <asp:TextBox ID="TxtTujuan" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <asp:Label ID="Label4" runat="server" Text="Keberangkatan"></asp:Label>
+                                <asp:TextBox ID="TxtKeberangkatan" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <asp:Label ID="Label5" runat="server" Text="Jam Keberangkatan"></asp:Label>
+                                <asp:TextBox ID="TxtJamBerangkat" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <asp:Label ID="Label6" runat="server" Text="Jam Tiba"></asp:Label>
+                                <asp:TextBox ID="TxtJamTiba" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <asp:Label ID="Label7" runat="server" Text="Kursi Tersedia"></asp:Label>
+                                <asp:TextBox ID="TxtKursi" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <asp:Label ID="Label3" runat="server" Text="Tujuan"></asp:Label>
-                            <asp:TextBox ID="TxtTujuan" CssClass="form-control" runat="server"></asp:TextBox>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                <asp:Button ID="BtnSave" CssClass="btn btn-primary" runat="server" Text="Simpan" />
                         </div>
                     </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
                 </div>
             </div>
         </main>
-        <footer>
-
-        </footer>
+        <footer></footer>
     </form>
     <script src="additional-file/js/jquery-3.2.1.slim.min.js"></script>
     <script src="additional-file/js/popper.min.js"></script>

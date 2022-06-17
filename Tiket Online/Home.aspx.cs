@@ -15,6 +15,7 @@ namespace Tiket_Online
         protected void Page_Load(object sender, EventArgs e)
         {
             TampilData();
+
         }
         private void TampilData()
         {
@@ -23,6 +24,5 @@ namespace Tiket_Online
             RptTampilDaftar.DataSource = Dt;
             RptTampilDaftar.DataBind();
         }
-            
     }
 }
