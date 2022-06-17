@@ -144,6 +144,7 @@
     <Content Include="bootstrap4\js\bootstrap.js.map" />
     <Content Include="bootstrap4\js\bootstrap.min.js.map" />
     <None Include="packages.config" />
+    <Content Include="Readme.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
