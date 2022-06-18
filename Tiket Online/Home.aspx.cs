@@ -17,6 +17,7 @@ namespace Tiket_Online
             if(!IsPostBack)
             {
                 TampilData();
+                Bersih();
             }
         }
         private void TampilData()
@@ -31,6 +32,29 @@ namespace Tiket_Online
         {
             ClsHome.SimpanData(TxtTanggal.Text, DDLNamaBus.SelectedValue, TxtTujuan.Text, TxtKeberangkatan.Text, TxtJamBerangkat.Text, TxtJamTiba.Text, TxtKursi.Text);
             TampilData();
+            Bersih();
+        }
+        public void Bersih()
+        {
+            TxtTanggal.Text = string.Empty;
+            DDLNamaBus.SelectedValue = "--Pilih Bus--";
+            TxtTujuan.Text = string.Empty;
+            TxtKeberangkatan.Text = string.Empty;
+            TxtJamBerangkat.Text = string.Empty;
+            TxtJamTiba.Text = string.Empty;
+            TxtKursi.Text = string.Empty;
+        }
+        protected void BtnEdit_Click(object sender, EventArgs e)
+        {
+            ClsHome.EditData(TxtEditTangga1.Text, DDLEditBus.SelectedValue, TxtEditTujuan.Text, TxtEditKeberangkatan.Text, TxtEditJamBe.Text, TxtEditJamTi.Text, TxtEditKursi.Text, Convert.ToInt32(TxtEditId.Text));
+            TampilData();
+            Bersih();
+        }
+        protected void BtnHapus_Click(object sender, EventArgs e)
+        {
+            ClsHome.HapusData(Convert.ToInt32(TxtEditId.Text));
+            TampilData();
+            Bersih();
         }
     }
 }

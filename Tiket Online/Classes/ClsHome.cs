@@ -53,5 +53,43 @@ namespace Tiket_Online.Classes
                 throw ex;
             }
         }
+        public static void EditData(string tanggal, string nama, string tujuan, string berangkat, string jamb, string jamt, string kursi, int id)
+        {
+            try
+            {
+                SqlConnection Sqlconn = new SqlConnection(ClsModule.Conn.ToString());
+                SqlCommand cmd = new SqlCommand();
+
+                Sqlconn.Open();
+                cmd.Connection = Sqlconn;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update tblDaftar set Tanggal= '"+tanggal+"', NamaBus= '"+nama+"', Tujuan= '"+tujuan+"', Keberangkatan= '"+berangkat+"', JamBerangkat= '"+jamb+"', JamTiba = '"+jamt+"', Kursi = '"+kursi+"' where ID = '"+id+"'";
+                cmd.ExecuteNonQuery();
+                Sqlconn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void HapusData(int id)
+        {
+            try
+            {
+                SqlConnection Sqlconn = new SqlConnection(ClsModule.Conn.ToString());
+                SqlCommand cmd = new SqlCommand();
+
+                Sqlconn.Open();
+                cmd.Connection = Sqlconn;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "delete from tblDaftar where ID = '" + id + "'";
+                cmd.ExecuteNonQuery();
+                Sqlconn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
